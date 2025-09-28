@@ -64,6 +64,20 @@ body {
 .logo {
   height: 60px;
 }
+
+@keyframes fadeInUp {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0%);
+    opacity: 1;
+  }
+}
+.fadeInUp-animation {
+  animation: 1.5s fadeInUp;
+}
   </style>
 </head>
   
@@ -71,15 +85,15 @@ body {
   
 <div class="center-container">
 
-  <div class="row header">
+  <div class="row header fadeInUp-animation">
     <img src="https://raw.githubusercontent.com/dataframe-sa/landing/refs/heads/main/Dataframe_20_Logo_Horizontal_English_All-White.svg" alt="Company Logo" class="logo">
   </div>
 
-  <div class="row slogan">
+  <div class="row slogan fadeInUp-animation">
     FRAMING YOUR FUTURE
   </div>
 
-  <div class="row coming-soon">
+  <div class="row coming-soon fadeInUp-animation">
     COMING SOON
   </div>
 
