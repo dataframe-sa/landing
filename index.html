@@ -29,7 +29,43 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   background-size: contain;
+  position: relative;
 }
+
+/* Red glitch layer */
+body::before,
+body::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: inherit;
+  background-size: cover;
+  mix-blend-mode: screen;
+  animation: glitch 2s infinite;
+}
+
+/* Red-ish slice */
+body::before {
+  left: -2px;
+  clip-path: inset(10% 0 40% 0);
+}
+
+/* Blue-ish slice */
+body::after {
+  left: 2px;
+  clip-path: inset(40% 0 20% 0);
+  animation-delay: .3s;
+}
+
+@keyframes glitch {
+  0% { clip-path: inset(10% 0 90% 0); transform: translate(-5px, -5px); }
+  20% { clip-path: inset(80% 0 10% 0); transform: translate(5px, 5px); }
+  40% { clip-path: inset(50% 0 30% 0); transform: translate(-5px, 5px); }
+  60% { clip-path: inset(70% 0 20% 0); transform: translate(5px, -5px); }
+  80% { clip-path: inset(20% 0 60% 0); transform: translate(-5px, 0); }
+  100% { clip-path: inset(10% 0 90% 0); transform: translate(0, 0); }
+}
+
 
 .center-container {
   display: flex;
