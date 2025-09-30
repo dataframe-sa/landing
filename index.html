@@ -32,7 +32,7 @@ body {
   position: relative;
 }
 
-/* Red glitch layer */
+/* Red shifted layer */
 body::before,
 body::after {
   content: "";
@@ -40,31 +40,31 @@ body::after {
   inset: 0;
   background: inherit;
   background-size: cover;
+  opacity: 0.8;
   mix-blend-mode: screen;
-  animation: glitch 2s infinite;
+  animation: glitchShift 1.5s infinite;
 }
 
-/* Red-ish slice */
 body::before {
-  left: -2px;
-  clip-path: inset(10% 0 40% 0);
+  transform: translate(-2px, 0);
+  background-color: red; /* tint effect */
 }
 
-/* Blue-ish slice */
 body::after {
-  left: 2px;
-  clip-path: inset(40% 0 20% 0);
-  animation-delay: .3s;
+  transform: translate(2px, 0);
+  background-color: blue; /* tint effect */
+  animation-delay: .2s;
 }
 
-@keyframes glitch {
-  0% { clip-path: inset(10% 0 90% 0); transform: translate(-5px, -5px); }
-  20% { clip-path: inset(80% 0 10% 0); transform: translate(5px, 5px); }
-  40% { clip-path: inset(50% 0 30% 0); transform: translate(-5px, 5px); }
-  60% { clip-path: inset(70% 0 20% 0); transform: translate(5px, -5px); }
-  80% { clip-path: inset(20% 0 60% 0); transform: translate(-5px, 0); }
-  100% { clip-path: inset(10% 0 90% 0); transform: translate(0, 0); }
+@keyframes glitchShift {
+  0%   { transform: translate(0, 0); }
+  20%  { transform: translate(-5px, 2px); }
+  40%  { transform: translate(5px, -2px); }
+  60%  { transform: translate(-3px, 3px); }
+  80%  { transform: translate(3px, -3px); }
+  100% { transform: translate(0, 0); }
 }
+
 
 
 .center-container {
